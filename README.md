@@ -7,8 +7,8 @@ These instructions will get you a copy of the project up and running on your loc
 
 **RSS Feed Tweet Bot** requires [ **Python (> Python 3.6)**](https://www.python.org/) .
 
-#### Getting the project.
-#
+### Getting the project.
+
 ```sh
 $ git clone https://github.com/gdsoumya/rss_feed_tweet_bot.git
 or 
