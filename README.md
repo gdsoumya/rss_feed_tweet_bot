@@ -3,18 +3,18 @@ The 'RSS Feed Tweet Bot' is a single user bot for twitter that automatically pos
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-#### Prerequisites
+### Prerequisites
 
 **RSS Feed Tweet Bot** requires [ **Python (> Python 3.6)**](https://www.python.org/) .
 
-##### Getting the project.
+#### Getting the project.
 #
 ```sh
 $ git clone https://github.com/gdsoumya/rss_feed_tweet_bot.git
 or 
 Download and extract the Zip-File
 ```
-#### Setting up Virtual Environemt
+### Setting up Virtual Environemt
 Setting up a virtual environment would be better for both development and normal execution purposes.
 ```sh
 $ cd rss_feed_tweet_bot
@@ -23,7 +23,7 @@ $ source env/bin/activate
  or (Windows machine)
 $ .\env\Scripts\activate
 ```
-#### Installing Dependencies
+### Installing Dependencies
 The Project has a few dependencies which can be installed by running.
 ```sh
 $ pip install -r dependencies.txt 
@@ -35,7 +35,7 @@ $ python server.py
 ```
 A Flask development server will be initialized at http://127.0.0.1:5000/
 
-#### Warnings 
+### Warnings 
 A possible warning that one might get is :
 
 **WARNING: Do not use the development server in a production environment.**
