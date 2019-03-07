@@ -41,7 +41,7 @@ A possible warning that one might get is :
 **WARNING: Do not use the development server in a production environment.**
 
 This warning is displayed because currently a Flask Development Server is running but the default environment of Flask is set to Production, to remove this warning change the FLASK_ENV environment variable.
-***Setting environment to development automatically sets the debugger on.**
+<br>***Setting environment to development automatically sets the debugger on.**
 ```sh
 $ export FLASK_ENV=development
 or (Windows machine)
