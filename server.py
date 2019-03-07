@@ -30,7 +30,7 @@ def start():
 	try:
 		authenticate()
 	except Exception as e:
-		print("\n!! ERROR : "+e+"\n")
+		print("\n!! ERROR : "+str(e)+"\n")
 		return False
 	if not running:
 		process=mp.Process(target=feedUpdate, args=(setup,feed))
@@ -49,7 +49,7 @@ def stop():
 			return True
 		return False
 	except Exception as e:
-		print("\n!! ERROR : "+e+"\n")
+		print("\n!! ERROR : "+str(e)+"\n")
 		return False
 
 #bot
@@ -93,6 +93,7 @@ def index():
 @app.route('/settings/',methods = ['POST', 'GET'])
 def settings():
 	global setup
+	global running
 	if request.method == 'POST':
 		try:
 			setup=[]
@@ -107,8 +108,11 @@ def settings():
 			setup = [x.rstrip() for x in setup]
 			if running:
 				stop()
+				running=not running
 				start()
-		except:
+				running=not running
+		except Exception as e: 
+			print("\n!! ERROR : "+str(e)+" !!\n")
 			return render_template('settings.html',setup=setup,message="ERROR Please Check Again")
 		return render_template('settings.html',setup=setup,message="UPDATED SUCCESFULLY")
 	else:
@@ -118,6 +122,7 @@ def settings():
 @app.route('/feed_list/',methods = ['POST', 'GET'])
 def feed_list():
 	global feed
+	global running
 	update=""
 	if request.method == 'POST':
 		feed=[x.rstrip().replace('\t','') for x in request.form['feed_list'].split('\n') if x.rstrip().replace('\t','')!=""]
@@ -128,10 +133,12 @@ def feed_list():
 			file.close()
 			if running:
 				stop()
+				running=not running
 				start()
+				running=not running
 			update="UPDATED SUCCESFULLY"
 		except Exception as e:
-			print("\n!! ERROR : "+e+"\n")
+			print("\n!! ERROR : "+str(e)+"\n")
 			update="ERROR : COULDN'T UPDATE"
 	return render_template('feed_list.html',feed=feed,message=update)
 
