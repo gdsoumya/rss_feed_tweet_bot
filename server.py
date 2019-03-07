@@ -186,4 +186,4 @@ if __name__ == '__main__':
 		file.close()
 	except:
 		pass
-	app.run('0.0.0.0')
+	app.run()
