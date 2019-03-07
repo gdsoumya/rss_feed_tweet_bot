@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RSS FEED TWEET BOT</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.jpg') }}">
+	<link href="https://fonts.googleapis.com/css?family=Bree+Serif|Pacifico" rel="stylesheet">
+</head>
+<body>
+	<div class="header">
+		<img id="bt" src="{{ url_for('static', filename='bot.jpg') }}">
+		<h1>RSS Feed Tweet Bot</h1>
+		<img id="bd" src="{{ url_for('static', filename='bird.png') }}">
+		<nav><div style="width: 13vw;"><a href="{{url_for('settings')}}">Settings</a></div><div style="width: 16vw;"><a href="{{url_for('feed_list')}}">Feed List</a></div></nav>
+	</div>
+	{% if erorr %}
+		<div class="error">{{erorr}}</div>
+	{% endif %}
+	<div id="err" class="error" style="display: none"></div>
+	<div class="status">
+		<div class="options">
+			<p>Bot</p>
+			<p>Feed List</p>
+			<p>Twitter Account</p>
+		</div>
+		<div class="state">
+			{% if run==True %}
+				<p id="stat" class="run hover">Running</p>
+			{% else %}
+				<p id="stat" class="run hover" style="background:red">Start</p>
+			{% endif %}
+			<p class="list hover"><a href="{{url_for('feed_list')}}" style="display:block;text-decoration: none;color: white;">View List</a></p>
+			<div style="width:22vw">
+			{% if run==True %}
+				<p id="usr" class="run hover"><a target="_blank" style="display:block;text-decoration: none;color: white;" href="https://twitter.com/{{user}}">@{{user}}</a></p>
+			{% else %}
+				<p id="usr" class="run hover" style="background:red">{{user}}</p>
+			{% endif %}<div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var run="{{run}}"
+		var stat = document.querySelector('#stat');
+		var usr= document.querySelector('#usr'); // the container for the variable content
+		const userAction = async () => {
+		  stat.innerHTML="Checking.."	
+		  const response = await fetch('http://'+window.location.host+'/changestate?state='+run);
+		  const myJson = await response.json();
+		  if (myJson['resp']=='True'){
+		  	run=myJson['pstate']
+		  	stat.innerHTML=myJson['stat']
+		  	stat.style.background=myJson['color']
+		  	usr.style.background=myJson['color']
+		  	if (myJson['user']!="Bot Inactive"){
+		  		usr.innerHTML='<a target="_blank" style="display:block;text-decoration: none;color: white;" href="https://twitter.com/'+myJson['user']+'">'+'@'+myJson['user']+'</a>'
+		  	}
+		  	else usr.innerHTML=myJson['user']
+		  }
+		  else{
+		  	var err = document.querySelector('#err');
+		  	err.innerHTML=myJson['erorr']
+		  	err.style.display="block"
+		  }
+		  	
+		}
+		stat.addEventListener('click',userAction)
+	</script>
+</body>
+</html>

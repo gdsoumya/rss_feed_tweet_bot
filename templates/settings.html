@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RSS FEED TWEET BOT</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.jpg') }}">
+	<link href="https://fonts.googleapis.com/css?family=Bree+Serif|Pacifico" rel="stylesheet">
+</head>
+<body>
+	<div class="header">
+		<img id="bt" src="/static/bot.jpg">
+		<h1>RSS Feed Tweet Bot</h1>
+		<img id="bd" src="/static/bird.png">
+		<nav><div style="width: 13vw;"><a href="{{url_for('index')}}" style="width: 7vw;">Home</a></div><div style="width: 16vw;"><a href="{{url_for('feed_list')}}">Feed List</a></div></nav>
+	</div>
+	{% if message %}
+		{% if message=="UPDATED SUCCESFULLY" %}
+			<div class="error" style="background:#25abff">{{message}}</div>
+		{% else %}
+			<div class="error">{{message}}</div>
+		{% endif %}
+	{% endif %}
+	<form class="form" action="" method="POST">
+		<div class="lbl">
+			<label for="consumer_key">Consumer API Key</label>
+			<label for="consumer_secret_key">Consumer API Secret Key</label>
+			<label for="access_token">Access Token</label>
+			<label for="access_token_secret">Access Token Secret</label>
+			<label for="interval">Tweet Interval(secs)</label>
+		</div>
+		<div>
+			<input type="text" name="consumer_key" value="{{setup[0]}}" required>
+			<input type="text" name="consumer_secret_key" value="{{setup[1]}}" required>
+			<input type="text" name="access_token" value="{{setup[2]}}" required>
+			<input type="text" name="access_token_secret" value="{{setup[3]}}" required>
+			<input type="text" name="interval" value="{{setup[4]}}" required>
+			<input class="hover sub" type="submit" name="name" value="UPDATE">
+		</div>
+	</form>
+</body>
+</html>
