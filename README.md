@@ -1,5 +1,8 @@
 # RSS Feed Tweet Bot
 The 'RSS Feed Tweet Bot' is a single user bot for twitter that automatically posts tweets about new posts/updates using multiple RSS feed links. It has a web interface that streamlines the whole experience.
+
+For a simpler and modular implementation of **RSS Feed Tweet Bot** check out **"[RSS Feed Tweet Bot Lite](https://github.com/gdsoumya/rss_feed_tweet_bot_lite)"**
+
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
