@@ -50,7 +50,6 @@ $ export FLASK_ENV=development
 or (Windows machine)
 $ set FLASK_ENV=development
 ```
-
 ## Setting up the Bot
 After starting the server for the first time a few things are needed to be setup for it to run properly.
 - **Setting up the API Keys** : Visit the settings tab and provide the api keys and tokens. For help regarding setting up a twitter app and getting the API keys check **[this](https://developer.twitter.com/en/docs/basics/developer-portal/overview)**
