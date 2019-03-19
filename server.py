@@ -215,4 +215,4 @@ if __name__ == '__main__':
 		file.close()
 	except:
 		pass
-	app.run(debug=True)
+	app.run()
