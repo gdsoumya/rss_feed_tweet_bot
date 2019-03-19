@@ -22,6 +22,7 @@ def authenticate():
 	auth.set_access_token(setup[2], setup[3])
 	api = tweepy.API(auth)
 	user=api.me().screen_name
+	return api
 
 
 #start bot process
@@ -88,6 +89,29 @@ def index():
 	if setup==[]:
 		return render_template('index.html',erorr="Bot not Configured. Visit Settings tab to configure.",run=running,user=user)
 	return render_template('index.html',run=running,user=user)
+
+#post manual tweet
+app.route('/tweet/',methods = ['POST', 'GET'])
+def tweetMan():
+	if setup==[]:
+		return render_template('tweet.html',erorr="Bot not Configured. Visit Settings tab to configure.")
+	if request.method == 'POST':
+		try:
+			api = authenticate()
+			try:
+				msg=request.form['status']
+				if msg==NULL or msg==' ':
+					raise Exception('Value Not Present')
+			except Exception as e:
+				print("\n!! ERROR : "+str(e)+"\n")
+			return render_template('tweet.html',erorr="ERROR : Empty Status")
+			api.update_status(msg)
+			return render_template('tweet.html',msg="Status Updated")
+		except Exception as e:
+			print("\n!! ERROR : "+str(e)+"\n")
+			return render_template('tweet.html',erorr="Authentication ERROR. Re-Configure Bot.")
+	return render_template('tweet.html')
+
 
 #settings route
 @app.route('/settings/',methods = ['POST', 'GET'])
