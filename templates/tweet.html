@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RSS FEED TWEET BOT</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.jpg') }}">
+	<link href="https://fonts.googleapis.com/css?family=Bree+Serif|Pacifico" rel="stylesheet">
+</head>
+<body>
+	<div class="header">
+		<img id="bt" src="/static/bot.jpg">
+		<h1>RSS Feed Tweet Bot</h1>
+		<img id="bd" src="/static/bird.png">
+		<nav>
+			<div><a href="{{url_for('index')}}" style="width: 7vw;">Home</a></div>
+			<div><a href="{{url_for('feed_list')}}">Feed List</a></div>
+			<div><a href="{{url_for('settings')}}">Settings</a></div>
+		</nav>
+	</div>
+	{% if message %}
+		{% if message=="Status Updated" %}
+			<div class="error" style="background:#25abff">{{message}}</div>
+		{% else %}
+			<div class="error">{{message}}</div>
+		{% endif %}
+	{% endif %}
+	<form class="form" action="" method="POST">
+		<div class="lbl">
+			<label for="status">Status</label>
+		</div>
+		<div>
+			<input type="text" name="status" placeholder="Enter Status" required>
+			<input class="hover sub" type="submit" name="name" value="UPDATE">
+		</div>
+	</form>
+</body>
+</html>

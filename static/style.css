@@ -18,8 +18,7 @@
 	top: 2.7vw;
 }
 .header h1{
-	
-font-size: 6vw;
+	font-size: 6vw;
 }
 .header{
 	text-align: center;
@@ -41,9 +40,9 @@ font-size: 6vw;
 	display: inline-block;
 	text-decoration: none;
 	background: #25abff;
-	margin: 0vw 2vw;
 	padding: 0.9vw 1.5vw;
 	border-radius: 4vw;
+	margin: 0vw 1vw;
 	font-size: 2vw;
 	font-weight: bold;
 	color: white;
@@ -208,7 +207,4 @@ textarea{
     width: fit-content;
     padding: 0.7vw 2vw;
     border-radius: 2vw;
-}
-.block{
-	
 }

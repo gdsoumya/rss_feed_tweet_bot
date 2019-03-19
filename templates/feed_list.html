@@ -11,7 +11,10 @@
 		<img id="bt" src="/static/bot.jpg">
 		<h1>RSS Feed Tweet Bot</h1>
 		<img id="bd" src="/static/bird.png">
-		<nav><div style="width: 13vw;"><a href="{{url_for('index')}}" style="width: 7vw;">Home</a></div><div style="width: 16vw;"><a href="{{url_for('settings')}}">Settings</a></div></nav>
+		<nav>
+		<div><a href="{{url_for('index')}}">Home</a></div>
+		<div><a href="{{url_for('settings')}}">Settings</a></div>
+		<div ><a href="{{url_for('tweet_man')}}">Tweet</a></div></nav>
 	</div>
 	{% if message %}
 		{% if message=="UPDATED SUCCESFULLY" %}

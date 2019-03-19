@@ -89,30 +89,6 @@ def index():
 	if setup==[]:
 		return render_template('index.html',erorr="Bot not Configured. Visit Settings tab to configure.",run=running,user=user)
 	return render_template('index.html',run=running,user=user)
-
-#post manual tweet
-app.route('/tweet/',methods = ['POST', 'GET'])
-def tweetMan():
-	if setup==[]:
-		return render_template('tweet.html',erorr="Bot not Configured. Visit Settings tab to configure.")
-	if request.method == 'POST':
-		try:
-			api = authenticate()
-			try:
-				msg=request.form['status']
-				if msg==NULL or msg==' ':
-					raise Exception('Value Not Present')
-			except Exception as e:
-				print("\n!! ERROR : "+str(e)+"\n")
-			return render_template('tweet.html',erorr="ERROR : Empty Status")
-			api.update_status(msg)
-			return render_template('tweet.html',msg="Status Updated")
-		except Exception as e:
-			print("\n!! ERROR : "+str(e)+"\n")
-			return render_template('tweet.html',erorr="Authentication ERROR. Re-Configure Bot.")
-	return render_template('tweet.html')
-
-
 #settings route
 @app.route('/settings/',methods = ['POST', 'GET'])
 def settings():
@@ -200,6 +176,28 @@ def changestate():
 				return resp
 			else:
 				return jsonify(resp="False",erorr="PROCESS ERORR")
+#post manual tweet
+@app.route('/tweets/',methods = ['POST', 'GET'])
+def tweet_man():
+	if setup==[]:
+		return render_template('tweet.html',message="Bot not Configured. Visit Settings tab to configure.")
+	if request.method == 'POST':
+		try:
+			api = authenticate()
+			try:
+				msg=request.form['status']
+				print(msg)
+				if msg==None or msg==' ':
+					raise Exception('Value Not Present')
+			except Exception as e:
+				print("\n!! ERROR : "+str(e)+"\n")
+				return render_template('tweet.html',message="ERROR : Empty Status")
+			api.update_status(msg)
+			return render_template('tweet.html',message="Status Updated")
+		except Exception as e:
+			print("\n!! ERROR : "+str(e)+"\n")
+			return render_template('tweet.html',message="Authentication ERROR. Re-Configure Bot.")
+	return render_template('tweet.html')
 
 #main running development server
 if __name__ == '__main__':
@@ -217,4 +215,4 @@ if __name__ == '__main__':
 		file.close()
 	except:
 		pass
-	app.run()
+	app.run(debug=True)
