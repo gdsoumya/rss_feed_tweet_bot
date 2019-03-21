@@ -208,3 +208,44 @@ textarea{
     padding: 0.7vw 2vw;
     border-radius: 2vw;
 }
+.form1{
+	width: 60%;
+	margin: 2vw auto 0vw auto;
+}
+.form1 textarea{
+	width: 35vw;
+    border: 0.16vw solid #25abff;
+    height: 4vw;
+    margin: 21px auto;
+    display: block;
+    font-size: 1.5vw;
+    padding: 1vw;
+    border-radius: 1vw;
+
+}
+.form1 label{
+	display: block;
+	margin: 4vw auto 0vw auto;
+	text-align: center;
+}
+.form1 .lbl{
+	font-family: 'Bree Serif', serif;
+	font-size: 1.8vw;
+	margin: 0vw 3vw;
+}
+.form1 .sub{
+	background: #25abff;
+	color: white;
+	font-family: 'Bree Serif', serif;
+	font-size: 1.6vw;
+	letter-spacing: 0.08vw;
+	border: none;
+	border-radius: 2vw;
+	padding: 0.5vw 1.6vw;
+	cursor: pointer;
+	margin: 0 auto;
+	display: block;
+}
+.form1 input:focus{
+    outline: none;
+}

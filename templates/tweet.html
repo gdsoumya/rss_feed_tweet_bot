@@ -24,13 +24,13 @@
 			<div class="error">{{message}}</div>
 		{% endif %}
 	{% endif %}
-	<form class="form" action="" method="POST">
+	<form class="form1" action="" method="POST">
 		<div class="lbl">
-			<label for="status">Status</label>
+			<label for="status">Manual Tweet</label>
 		</div>
 		<div>
-			<input type="text" name="status" placeholder="Enter Status" required>
-			<input class="hover sub" type="submit" name="name" value="UPDATE">
+			<textarea name="status" placeholder="What's happening?" required></textarea>
+			<input class="hover sub" type="submit" name="name" value="tweet">
 		</div>
 	</form>
 </body>
