@@ -1,6 +1,9 @@
 # RSS Feed Tweet Bot
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)   <img src="https://img.shields.io/badge/made%20with-python-blue.svg" alt="made with python"> [![Codeship Status for gdsoumya/rss_feed_tweet_bot](https://app.codeship.com/projects/4416eed0-2be3-0137-e261-62fb80733f02/status?branch=master)](https://app.codeship.com/projects/331218) <a href='https://github.com/gdsoumya'><img src='https://img.shields.io/github/followers/gdsoumya.svg?label=Folow&style=social'></a> <a href="https://twitter.com/intent/tweet?text=Check+out+this+awesome+Github+Repo+for+a+Twitter+Bot%2C+it+can+auto+tweet+posts+using+RSS+Feed+links.&url=https%3A%2F%2Fgithub.com%2Fgdsoumya%2Frss_feed_tweet_bot%2F&hashtags=twitter%2Ctwitter+bot%2Cgithub&original_referer=http%3A%2F%2Fgithub.com%2F&tw_p=tweetbutton" target="_blank">
+  <img src="http://jpillora.com/github-twitter-button/img/tweet.png"
+       alt="tweet button" title="Check out this awesome Github Repo for a Twitter Bot, it can auto tweet posts using RSS Feed links."></img>
+</a>
 
 The 'RSS Feed Tweet Bot' is a single user bot for twitter that automatically posts tweets about new posts/updates using multiple RSS feed links. It has a web interface that streamlines the whole experience.
 
