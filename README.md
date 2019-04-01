@@ -1,4 +1,7 @@
 # RSS Feed Tweet Bot
+
+[![HitCount](http://hits.dwyl.io/gdsoumya/rss_feed_tweet_bot.svg)](http://hits.dwyl.io/gdsoumya/rss_feed_tweet_bot) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 The 'RSS Feed Tweet Bot' is a single user bot for twitter that automatically posts tweets about new posts/updates using multiple RSS feed links. It has a web interface that streamlines the whole experience.
 
 For a simpler and modular implementation of **RSS Feed Tweet Bot** check out **"[RSS Feed Tweet Bot Lite](https://github.com/gdsoumya/rss_feed_tweet_bot_lite)"**
